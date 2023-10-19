@@ -1,6 +1,7 @@
 
 //griglia
 let vetQuadrati;
+let score;
 const btn = document.querySelector('button');
 const numBombe = 8;
 
@@ -75,7 +76,7 @@ function createSquare(rowSquare) {
     //click sui quadrati
     square.addEventListener('click', function () {
         square.classList.add('active');
-
+        score ++;
         //controllo se i quadrati contengono la classe bomba
         if (vetQuadrati[square.innerHTML].classList.contains('bomb')) {
             vetQuadrati[square.innerHTML].classList.remove('active');
