@@ -78,10 +78,11 @@ function createSquare(rowSquare) {
     //square.innerHTML = squareIndex + 1;
 
     //click sui quadrati
-    square.addEventListener('click', function () {
+    square.addEventListener('click', function squareClick() {
         square.classList.add('active');
         //controllo se i quadrati contengono la classe bomba
         if (vetQuadrati[square.innerHTML - 1].classList.contains('bomb')) {
+            square.removeEventListener('click', squareClick)
             vetQuadrati[square.innerHTML - 1].classList.remove('active');
             vetQuadrati[square.innerHTML - 1].classList.add('red');
             stampaBombe(vetQuadrati);
@@ -90,6 +91,7 @@ function createSquare(rowSquare) {
             setTimeout(reset, 3000);
             //altrimenti controllo se ho messo tutte le bombe 
         } else{
+            square.removeEventListener('click', squareClick)
             square.classList.add('active');
             score ++;
             if (vetQuadrati.length - document.getElementsByClassName('active').length === numBombe){
