@@ -45,14 +45,18 @@ btn.addEventListener('click', function () {
     }
     */
 
-    for(let i = 0; i < numBombe; i++){
+    for(let i = 0; i < numBombe;){
         indiceCaselle = getRndInteger(0, numSquare - 1);
         if(vetQuadrati[indiceCaselle].classList.contains('bomb')){
             continue;
         }else{
             vetQuadrati[indiceCaselle].classList.add('bomb');
+            //console.log(vetQuadrati[indiceCaselle].innerHTML);
+            i++;
         }
     }
+
+    
 
 })
 
@@ -76,22 +80,35 @@ function createSquare(rowSquare) {
     //click sui quadrati
     square.addEventListener('click', function () {
         square.classList.add('active');
-        score ++;
         //controllo se i quadrati contengono la classe bomba
-        if (vetQuadrati[square.innerHTML].classList.contains('bomb')) {
-            vetQuadrati[square.innerHTML].classList.remove('active');
-            vetQuadrati[square.innerHTML].classList.add('red');
-            alert(`hai perso il tuo score é di : ${score - 1}`);
+        if (vetQuadrati[square.innerHTML - 1].classList.contains('bomb')) {
+            vetQuadrati[square.innerHTML - 1].classList.remove('active');
+            vetQuadrati[square.innerHTML - 1].classList.add('red');
+            stampaBombe(vetQuadrati);
             console.log(score);
-            reset();
+            alert(`hai perso il tuo score é di : ${score}`);
+            setTimeout(reset, 3000);
             //altrimenti controllo se ho messo tutte le bombe 
-        } else if (vetQuadrati.length - document.getElementsByClassName('active').length === numBombe) {
-            alert(`hai vinto il tuo score é di : ${score}`);
-            reset();
+        } else{
+            square.classList.add('active');
+            score ++;
+            if (vetQuadrati.length - document.getElementsByClassName('active').length === numBombe){
+                alert(`hai vinto il tuo score é di : ${score}`);
+                reset();
+            }
         }
     })
 
     return square;
+}
+
+
+function stampaBombe(vetQuadrati){
+    for(let i = 0; i < vetQuadrati.length; i++){
+        if(vetQuadrati[i].classList.contains('bomb')){
+            vetQuadrati[i].classList.add('red');
+        }
+    }
 }
 
 //reset del campo se perdo o vinco
