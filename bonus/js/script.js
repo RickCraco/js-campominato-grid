@@ -81,11 +81,11 @@ function createSquare(rowSquare) {
         if (vetQuadrati[square.innerHTML].classList.contains('bomb')) {
             vetQuadrati[square.innerHTML].classList.remove('active');
             vetQuadrati[square.innerHTML].classList.add('red');
-            alert('hai perso')
+            alert('hai perso, il tuo punteggio é di :', score - 1)
             reset();
             //altrimenti controllo se ho messo tutte le bombe 
         } else if (vetQuadrati.length - document.getElementsByClassName('active').length === numBombe) {
-            alert('hai vinto');
+            alert('hai vinto, il tuo punteggio é di : ', score);
             reset();
         }
     })
