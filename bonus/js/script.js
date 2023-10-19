@@ -63,7 +63,7 @@ function createSquare(rowSquare) {
 
     //click sui quadrati
     square.addEventListener('click', function () {
-        square.classList.toggle('active');
+        square.classList.add('active');
 
         //controllo se i quadrati contengono la classe bomba
         if (vetQuadrati[square.innerHTML].classList.contains('bomb')) {
