@@ -1,7 +1,7 @@
 
 //griglia
 let vetQuadrati;
-let score;
+let score = 0;
 const btn = document.querySelector('button');
 const numBombe = 8;
 
