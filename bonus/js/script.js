@@ -18,7 +18,7 @@ btn.addEventListener('click', function () {
         numSquare = 49;
     }
 
-    let indiceBombe = 0;
+    //let indiceBombe = 0;
 
     for (let i = 1; i <= numSquare; i++) {
         let square = createSquare(numSquare);
