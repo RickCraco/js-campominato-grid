@@ -1,6 +1,6 @@
-let vetQuadrati;
-//griglia
 
+//griglia
+let vetQuadrati;
 const btn = document.querySelector('button');
 const numBombe = 8;
 
