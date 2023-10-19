@@ -2,6 +2,7 @@ let vetQuadrati;
 //griglia
 
 const btn = document.querySelector('button');
+const numBombe = 8;
 
 btn.addEventListener('click', function () {
     const playground = document.getElementById('playground');
@@ -28,7 +29,7 @@ btn.addEventListener('click', function () {
 
     let indiceCaselle;
 
-    while (indiceBombe < 8) {
+    while (indiceBombe < numBombe) {
 
         indiceCaselle = getRndInteger(0, numSquare - 1);
 
@@ -72,7 +73,7 @@ function createSquare(rowSquare) {
             alert('hai perso')
             reset();
             //altrimenti controllo se ho messo tutte le bombe 
-        } else if (vetQuadrati.length - document.getElementsByClassName('active').length === 8) {
+        } else if (vetQuadrati.length - document.getElementsByClassName('active').length === numBombe) {
             alert('hai vinto');
             reset();
         }
