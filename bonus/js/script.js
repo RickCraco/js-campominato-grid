@@ -99,4 +99,5 @@ function createSquare(rowSquare) {
 function reset() {
     const playground = document.getElementById('playground');
     playground.innerHTML = '';
+    score = 0;
 }
