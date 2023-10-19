@@ -28,7 +28,7 @@ btn.addEventListener('click', function () {
     vetQuadrati = document.getElementsByClassName('square');
 
     let indiceCaselle;
-
+    /*
     while (indiceBombe < numBombe) {
 
         indiceCaselle = getRndInteger(0, numSquare - 1);
@@ -41,6 +41,16 @@ btn.addEventListener('click', function () {
             indiceBombe++;
         }
 
+    }
+    */
+
+    for(let i = 0; i < numBombe; i++){
+        indiceCaselle = getRndInteger(0, numSquare - 1);
+        if(vetQuadrati[indiceCaselle].classList.contains('bomb')){
+            continue;
+        }else{
+            vetQuadrati[indiceCaselle].classList.add('bomb');
+        }
     }
 
 })
