@@ -81,7 +81,7 @@ function createSquare(rowSquare) {
         if (vetQuadrati[square.innerHTML].classList.contains('bomb')) {
             vetQuadrati[square.innerHTML].classList.remove('active');
             vetQuadrati[square.innerHTML].classList.add('red');
-            alert(`hai perso il tuo score é di : ${score}`);
+            alert(`hai perso il tuo score é di : ${score - 1}`);
             console.log(score);
             reset();
             //altrimenti controllo se ho messo tutte le bombe 
